@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sales Landing Page A/B Test</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🚀 Sales Landing Page A/B Test</h1>
+      <p>Interactive testing with real-time analytics dashboard</p>
+    </div>
+
+    <div class="controls">
+      <button class="btn btn-primary" onclick="showLandingPage()">View Landing Page</button>
+      <button class="btn btn-secondary" onclick="showDashboard()">View Dashboard</button>
+      <button class="btn btn-secondary" onclick="resetData()">Reset Data</button>
+    </div>
+
+    <!-- Landing Page -->
+    <div id="landingPage" class="landing-page fade-in">
+      <div id="heroSection" class="hero version-a">
+        <div class="hero-content">
+          <h2 id="heroTitle">Transform Your Business Today</h2>
+          <p id="heroSubtitle">
+            Join thousands of successful entrepreneurs who have revolutionized their workflow with our cutting-edge solution.
+          </p>
+
+          <div class="cta-section">
+            <button id="ctaButton" class="cta-btn pulse" onclick="handleCTAClick()">
+              Start Your Journey
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">⚡</div>
+          <h3>Lightning Fast</h3>
+          <p>Experience blazing fast performance with our optimized solutions.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🛡️</div>
+          <h3>Secure & Reliable</h3>
+          <p>Bank-level security ensures your data is always protected.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">📈</div>
+          <h3>Proven Results</h3>
+          <p>Join 50,000+ users who have achieved remarkable growth.</p>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <div class="forms-grid">
+          <div class="form-card">
+            <h3>🔐 Sign In</h3>
+            <form onsubmit="handleSignIn(event)">
+              <div class="form-group">
+                <input type="email" class="form-control" placeholder="Email Address" required>
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" placeholder="Password" required>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%;">Sign In</button>
+              <div class="success-message" id="signinSuccess">Welcome back! Sign in successful.</div>
+            </form>
+          </div>
+
+          <div class="form-card">
+            <h3>📧 Contact Us</h3>
+            <form onsubmit="handleContact(event)">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Your Name" required>
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" placeholder="Email Address" required>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" placeholder="Your Message" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+              <div class="success-message" id="contactSuccess">Thank you! Your message has been sent.</div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="dashboard" class="dashboard">
+      <h2>📊 Analytics Dashboard</h2>
+      <div class="metrics">
+        <div class="metric-card">
+          <div class="metric-value" id="totalViews">0</div>
+          <div class="metric-label">Total Views</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value" id="totalClicks">0</div>
+          <div class="metric-label">Total Clicks</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value" id="totalSignins">0</div>
+          <div class="metric-label">Sign Ins</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value" id="totalContacts">0</div>
+          <div class="metric-label">Contacts</div>
+        </div>
+      </div>
+
+      <div class="comparison">
+        <div class="version-stats version-a">
+          <h3>Version A - "Start Your Journey"</h3>
+          <div class="stat-row"><span>Views:</span><strong id="viewsA">0</strong></div>
+          <div class="stat-row"><span>Clicks:</span><strong id="clicksA">0</strong></div>
+          <div class="stat-row"><span>CTR:</span><strong id="ctrA">0%</strong></div>
+          <div class="stat-row"><span>Avg. Time:</span><strong id="avgTimeA">0s</strong></div>
+          <div class="progress-bar"><div class="progress-fill" id="progressA" style="width: 0%"></div></div>
+        </div>
+
+        <div class="version-stats version-b">
+          <h3>Version B - "Get Started Now"</h3>
+          <div class="stat-row"><span>Views:</span><strong id="viewsB">0</strong></div>
+          <div class="stat-row"><span>Clicks:</span><strong id="clicksB">0</strong></div>
+          <div class="stat-row"><span>CTR:</span><strong id="ctrB">0%</strong></div>
+          <div class="stat-row"><span>Avg. Time:</span><strong id="avgTimeB">0s</strong></div>
+          <div class="progress-bar"><div class="progress-fill" id="progressB" style="width: 0%"></div></div>
+        </div>
+      </div>
+
+      <div style="text-align: center;">
+        <button class="btn btn-primary" onclick="exportData()">📥 Export Data</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
